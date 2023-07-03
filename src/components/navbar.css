@@ -1,0 +1,33 @@
+#navbar {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  border-bottom: solid 1px gray;
+}
+
+#navbar img {
+  height: 50px;
+  margin-right: 50px;
+}
+
+#menu {
+  display: flex;
+  margin-left: auto;
+  list-style: none;
+  gap: 20px;
+  margin-right: 50px;
+}
+
+#menu li a {
+  text-decoration: none;
+  color: rgb(0, 60, 255);
+}
+
+#menu li.active a {
+  text-decoration: underline;
+}
+
+#profile {
+  border-left: solid 1px gray;
+  padding-left: 20px;
+}
