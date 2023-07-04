@@ -1,3 +1,13 @@
-const Rockets = () => <h2>Rockets</h2>;
+import React from 'react';
+import Rocket from './Rocket';
+
+function Rockets() {
+  return (
+    <section>
+      <Rocket />
+      <Rocket />
+    </section>
+  );
+}
 
 export default Rockets;
