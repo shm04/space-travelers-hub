@@ -1,0 +1,31 @@
+.header {
+    display: flex;
+    margin: 20px;
+}
+
+.title {
+    width: 15%;
+    padding: 5px;
+    border: solid 1px #000;
+}
+
+.description {
+    width: 55%;
+    padding: 5px;
+    border: solid 1px #000;
+    border-left: none;
+}
+
+.status {
+    width: 15%;
+    padding: 5px;
+    border: solid 1px #000;
+    border-left: none;
+}
+
+.joinBtn {
+    width: 15%;
+    padding: 5px;
+    border: solid 1px #000;
+    border-left: none;
+}

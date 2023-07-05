@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const getRockets = createAsyncThunk('rockets/getRockets', async () => {
@@ -18,25 +17,31 @@ const rocketSlice = createSlice({
   name: 'rockets',
   initialState,
   reducers: {},
-  extraReducers: {
-    [getRockets.pending]: (state) => {
-      state.loading = true;
-    },
-    [getRockets.fulfilled]: (state, action) => {
-      state.status = 'Data fetch succeeded';
-      const extractedRockets = action.payload.map((rocket) => ({
-        id: rocket.id,
-        name: rocket.name,
-        description: rocket.description,
-        flickr_images: rocket.flickr_images,
-        reserved: false,
+  extraReducers: (builder) => {
+    builder
+      .addCase(getRockets.pending, (state) => ({
+        ...state,
+        loading: true,
+      }))
+      .addCase(getRockets.fulfilled, (state, action) => ({
+        ...state,
+        status: 'Data fetch succeeded',
+        rockets: [
+          ...state.rockets,
+          ...action.payload.map((rocket) => ({
+            id: rocket.id,
+            name: rocket.name,
+            description: rocket.description,
+            flickr_images: rocket.flickr_images,
+            reserved: false,
+          })),
+        ],
+      }))
+      .addCase(getRockets.rejected, (state, action) => ({
+        ...state,
+        status: 'failed',
+        error: action.error.message,
       }));
-      state.rockets = state.rockets.concat(extractedRockets);
-    },
-    [getRockets.rejected]: (state, action) => {
-      state.status = 'failed';
-      state.error = action.error.message;
-    },
   },
 });
 
