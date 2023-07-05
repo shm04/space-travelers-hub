@@ -37,12 +37,22 @@
   justify-content: center;
 }
 
-.statusM p {
-  border: solid 1px gray;
+.activeMember {
+  background-color: #18a2b8;
+  border: solid 1px #18a2b8;
   color: #fff;
-  background-color: gray;
   border-radius: 5px;
   padding: 3px;
+  margin: 0;
+}
+
+.notActive {
+  background-color: #6d757d;
+  border: solid 1px #6d767d;
+  color: #fff;
+  border-radius: 5px;
+  padding: 3px;
+  margin: 0;
 }
 
 .joinBtn {
@@ -56,13 +66,20 @@
   justify-content: center;
 }
 
-.joinBtn button {
-  border: solid 1px #000;
-  color: #000;
+.joinMission {
   background-color: #fff;
-  padding: 7px;
+  border: 1px solid #000;
+  color: #000;
   border-radius: 5px;
-  cursor: pointer;
+  padding: 7px;
+}
+
+.leaveMission {
+  background-color: #fff;
+  border: 1px solid red;
+  color: red;
+  border-radius: 5px;
+  padding: 7px;
 }
 
 .missionDiv {
