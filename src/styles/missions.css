@@ -66,13 +66,20 @@
   justify-content: center;
 }
 
-.joinBtn button {
-  border: solid 1px #000;
-  color: #000;
+.joinMission {
   background-color: #fff;
-  padding: 7px;
+  border: 1px solid #000;
+  color: #000;
   border-radius: 5px;
-  cursor: pointer;
+  padding: 7px;
+}
+
+.leaveMission {
+  background-color: #fff;
+  border: 1px solid red;
+  color: red;
+  border-radius: 5px;
+  padding: 7px;
 }
 
 .missionDiv {

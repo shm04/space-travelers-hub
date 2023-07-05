@@ -17,7 +17,13 @@ const missionSlice = createSlice({
   name: 'missions',
   initialState,
   reducers: {
-    reserveMission: (state, action) => {
+    joinMission: (state, action) => {
+      const mission = state.missions.find((mission) => mission.id === action.payload);
+      if (mission) {
+        mission.reserved = !mission.reserved;
+      }
+    },
+    leaveMission: (state, action) => {
       const mission = state.missions.find((mission) => mission.id === action.payload);
       if (mission) {
         mission.reserved = !mission.reserved;
@@ -51,5 +57,5 @@ const missionSlice = createSlice({
   },
 });
 
-export const { reserveMission } = missionSlice.actions;
+export const { joinMission, leaveMission } = missionSlice.actions;
 export default missionSlice.reducer;
