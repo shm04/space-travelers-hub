@@ -1,19 +1,23 @@
 import React from 'react';
 import '../styles/rocket.css';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
+import { Button, Badge } from 'react-bootstrap';
+import { reserveRocket } from '../redux/rockets/rocketSlices';
 
 function Rocket({
   id, name, description, images, reserved,
 }) {
-  const CTAButton = reserved ? <Button variant="outline-secondary" className="CTABtn" id={id}>Cancel Reservation</Button> : <Button className="CTABtn" type="button" variant="primary" id={id}>Reserve Rocket</Button>;
+  const dispatch = useDispatch();
+  const CTAButton = reserved ? <Button variant="outline-secondary" className="CTABtn" id={id}>Cancel Reservation</Button> : <Button className="CTABtn" onClick={() => dispatch(reserveRocket(id))} type="button" variant="primary" id={id}>Reserve Rocket</Button>;
   return (
     <div className="rocketCard" id={id}>
       <img src={images[0]} className="cardImage" alt="rocket" />
       <div className="details">
         <h2 className="title">{name}</h2>
         <p className="description">
-          {reserved && <span className="reserveBadge">reserved</span>}
+          {reserved && <Badge bg="success">reserved</Badge>}
+          {' '}
           {description}
         </p>
         {CTAButton}
