@@ -4,6 +4,7 @@ import rocketReducer from './rockets/rocketSlices';
 const store = configureStore({
   reducer: {
     rocket: rocketReducer,
+    dragon: dragonReducer
   },
 });
 
