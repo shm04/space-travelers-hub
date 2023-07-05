@@ -1,22 +1,33 @@
 import React from 'react';
 import '../styles/rocket.css';
+import PropTypes from 'prop-types';
+import Button from 'react-bootstrap/Button';
 
-const Rocket = () => (
-  <div className="rocketCard">
-    <img src="https://i.imgur.com/DaCfMsj.jpg" className="cardImage" alt="rocket" />
-    <div className="details">
-      <h2 className="title">Falcon 1</h2>
-      <p className="description">
-        <span className="reserveBadge">{}</span>
-        {' '}
-        The Falcon 1 was an expendable launch system privately developed
-        and manufactured by SpaceX during 2006-2009.
-        On 28 September 2008, Falcon 1 became the first privately-developed
-        liquid-fuel launch vehicle to go into orbit around the Earth.
-      </p>
-      <button type="button" className="CTABtn">Reserve Rocket</button>
+function Rocket({
+  id, name, description, images, reserved,
+}) {
+  const CTAButton = reserved ? <Button variant="outline-secondary" className="CTABtn" id={id}>Cancel Reservation</Button> : <Button className="CTABtn" type="button" variant="primary" id={id}>Reserve Rocket</Button>;
+  return (
+    <div className="rocketCard" id={id}>
+      <img src={images[0]} className="cardImage" alt="rocket" />
+      <div className="details">
+        <h2 className="title">{name}</h2>
+        <p className="description">
+          {reserved && <span className="reserveBadge">reserved</span>}
+          {description}
+        </p>
+        {CTAButton}
+      </div>
     </div>
-  </div>
-);
+  );
+}
+
+Rocket.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  images: PropTypes.string.isRequired,
+  reserved: PropTypes.bool.isRequired,
+};
 
 export default Rocket;
