@@ -38,8 +38,8 @@
 }
 
 .activeMember {
-  background-color: #18A2B8;
-  border: solid 1px #18A2B8;
+  background-color: #18a2b8;
+  border: solid 1px #18a2b8;
   color: #fff;
   border-radius: 5px;
   padding: 3px;
@@ -47,8 +47,8 @@
 }
 
 .notActive {
-  background-color: #6D757D;
-  border: solid 1px #6D757D;
+  background-color: #6d757d;
+  border: solid 1px #6d767d;
   color: #fff;
   border-radius: 5px;
   padding: 3px;
