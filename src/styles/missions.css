@@ -37,12 +37,22 @@
   justify-content: center;
 }
 
-.statusM p {
-  border: solid 1px gray;
+.activeMember {
+  background-color: #18A2B8;
+  border: solid 1px #18A2B8;
   color: #fff;
-  background-color: gray;
   border-radius: 5px;
   padding: 3px;
+  margin: 0;
+}
+
+.notActive {
+  background-color: #6D757D;
+  border: solid 1px #6D757D;
+  color: #fff;
+  border-radius: 5px;
+  padding: 3px;
+  margin: 0;
 }
 
 .joinBtn {
