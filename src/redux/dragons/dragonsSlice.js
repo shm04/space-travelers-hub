@@ -3,6 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 const initialState = {
   loading: false,
   dragons: [],
+  reservedDragons: [],
   status: 'idle',
   error: null,
 };
