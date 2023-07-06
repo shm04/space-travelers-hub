@@ -2,13 +2,13 @@ import React from 'react';
 import '../styles/missions.css';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { joinMission, leaveMission } from '../redux/missions/missionsSlice';
+import { joinMission, leaveMission, filterMissions } from '../redux/missions/missionsSlice';
 
 function Mission({
   id, name, description, reserved,
 }) {
   const dispatch = useDispatch();
-  const joinBtn = reserved ? <button type="button" onClick={() => dispatch(leaveMission(id))} className="leaveMission" id={id}>Leave Mission</button> : <button className="joinMission" onClick={() => dispatch(joinMission(id))} type="button" id={id}>Join Mission</button>;
+  const joinBtn = reserved ? <button type="button" onClick={() => { dispatch(leaveMission(id)); dispatch(filterMissions()); }} className="leaveMission" id={id}>Leave Mission</button> : <button className="joinMission" onClick={() => { dispatch(joinMission(id)); dispatch(filterMissions()); }} type="button" id={id}>Join Mission</button>;
   const statusClass = reserved ? 'activeMember' : 'notActive';
 
   return (

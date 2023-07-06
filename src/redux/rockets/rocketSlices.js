@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const getRockets = createAsyncThunk('rockets/getRockets', async () => {
@@ -21,19 +20,25 @@ const rocketSlice = createSlice({
   initialState,
   reducers: {
     reserveRocket: (state, action) => {
-      const rocket = state.rockets.find((rocket) => rocket.id === action.payload);
+      const rocket = state.rockets.find(
+        (rocket) => rocket.id === action.payload,
+      );
       if (rocket) {
         rocket.reserved = !rocket.reserved;
       }
     },
     cancelReservation: (state, action) => {
-      const rocket = state.rockets.find((rocket) => rocket.id === action.payload);
+      const rocket = state.rockets.find(
+        (rocket) => rocket.id === action.payload,
+      );
       if (rocket) {
         rocket.reserved = !rocket.reserved;
       }
     },
     filterRockets: (state) => {
-      const rockets = state.rockets.filter((rocket) => rocket.reserved === true);
+      const rockets = state.rockets.filter(
+        (rocket) => rocket.reserved === true,
+      );
       if (rockets) {
         const newState = { ...state };
         newState.reservedRockets = rockets;
@@ -44,12 +49,14 @@ const rocketSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getRockets.pending, (state) => {
-        state.loading = true;
-      })
-      .addCase(getRockets.fulfilled, (state, action) => {
-        state.status = 'Data fetch succeeded';
-        state.rockets = [
+      .addCase(getRockets.pending, (state) => ({
+        ...state,
+        loading: true,
+      }))
+      .addCase(getRockets.fulfilled, (state, action) => ({
+        ...state,
+        status: 'Data fetch succeeded',
+        rockets: [
           ...state.rockets,
           ...action.payload.map((rocket) => ({
             id: rocket.id,
@@ -58,14 +65,13 @@ const rocketSlice = createSlice({
             flickr_images: rocket.flickr_images,
             reserved: false,
           })),
-        ];
-        state.loading = false;
-      })
-      .addCase(getRockets.rejected, (state, action) => {
-        state.status = 'failed';
-        state.error = action.error.message;
-        state.loading = false;
-      });
+        ],
+      }))
+      .addCase(getRockets.rejected, (state, action) => ({
+        ...state,
+        status: 'failed',
+        error: action.error.message,
+      }));
   },
 });
 
