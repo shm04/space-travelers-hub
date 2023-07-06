@@ -10,7 +10,7 @@ function Rockets() {
     dispatch(getRockets());
   }, [dispatch]);
 
-  const mappedRockets = rockets.slice(0, 4).map((rocket) => (
+  const mappedRockets = rockets.slice(2, 6).map((rocket) => (
     <Rocket
       key={rocket.id}
       id={rocket.id}
