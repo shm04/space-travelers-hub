@@ -3,12 +3,14 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const getRockets = createAsyncThunk('rockets/getRockets', async () => {
   const response = await fetch('https://api.spacexdata.com/v4/rockets');
   const data = await response.json();
+
   return data;
 });
 
 const initialState = {
   rockets: [],
   loading: false,
+  reservedRockets: [],
   status: 'idle',
   error: null,
 };
@@ -18,16 +20,31 @@ const rocketSlice = createSlice({
   initialState,
   reducers: {
     reserveRocket: (state, action) => {
-      const rocket = state.rockets.find((rocket) => rocket.id === action.payload);
+      const rocket = state.rockets.find(
+        (rocket) => rocket.id === action.payload,
+      );
       if (rocket) {
         rocket.reserved = !rocket.reserved;
       }
     },
     cancelReservation: (state, action) => {
-      const rocket = state.rockets.find((rocket) => rocket.id === action.payload);
+      const rocket = state.rockets.find(
+        (rocket) => rocket.id === action.payload,
+      );
       if (rocket) {
         rocket.reserved = !rocket.reserved;
       }
+    },
+    filterRockets: (state) => {
+      const rockets = state.rockets.filter(
+        (rocket) => rocket.reserved === true,
+      );
+      if (rockets) {
+        const newState = { ...state };
+        newState.reservedRockets = rockets;
+        return newState;
+      }
+      return state;
     },
   },
   extraReducers: (builder) => {
@@ -58,5 +75,5 @@ const rocketSlice = createSlice({
   },
 });
 
-export const { reserveRocket, cancelReservation } = rocketSlice.actions;
+export const { reserveRocket, cancelReservation, filterRockets } = rocketSlice.actions;
 export default rocketSlice.reducer;
