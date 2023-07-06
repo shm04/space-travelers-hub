@@ -18,8 +18,8 @@
 }
 
 .dragon-writeup {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .reserve-btn {
@@ -30,4 +30,10 @@
   color: white;
   border: none;
   cursor: pointer;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.unreserve {
+  background-color: gray;
 }
