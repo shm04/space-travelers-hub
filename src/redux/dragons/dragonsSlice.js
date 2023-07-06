@@ -8,7 +8,7 @@ const initialState = {
 };
 
 const fetchDragons = createAsyncThunk('rockets/getRockets', async () => {
-  const response = await fetch('https://api.spacexdata.com/v4/rockets');
+  const response = await fetch('https://api.spacexdata.com/v4/dragons');
   const data = await response.json();
   return data;
 });
@@ -16,7 +16,14 @@ const fetchDragons = createAsyncThunk('rockets/getRockets', async () => {
 const dragonSlice = createSlice({
   name: 'dragon',
   initialState,
-  reducers: {},
+  reducers: {
+    reserveDragon: (state, action) => {
+      const dragon = state.dragons.find((dragon) => dragon.id === action.payload);
+      if (dragon) {
+        dragon.reserved = !dragon.reserved;
+      }
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchDragons.pending, (state) => ({
@@ -48,3 +55,4 @@ const dragonSlice = createSlice({
 
 export default dragonSlice.reducer;
 export { fetchDragons };
+export const { reserveDragon } = dragonSlice.actions;
