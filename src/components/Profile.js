@@ -6,6 +6,18 @@ import { useSelector } from 'react-redux';
 
 function Profile() {
   const reservedRockets = useSelector((state) => state.rocket.reservedRockets);
+  let rocketRender;
+  if (reservedRockets.length === 0) {
+    rocketRender = <div>You have not reserved any Rocket</div>;
+  } else {
+    rocketRender = (
+      <ListGroup>
+        {reservedRockets.map((rocket) => (
+          <ListGroup.Item key={rocket.id}>{rocket.name}</ListGroup.Item>
+        ))}
+      </ListGroup>
+    );
+  }
 
   return (
     <Container style={{ marginTop: '2rem' }}>
@@ -22,11 +34,7 @@ function Profile() {
         </Col>
         <Col className="rocketsSection">
           <h1 className="rocketTitle">My Rockets</h1>
-          <ListGroup>
-            {reservedRockets.map((rocket) => (
-              <ListGroup.Item key={rocket.id}>{rocket.name}</ListGroup.Item>
-            ))}
-          </ListGroup>
+          {rocketRender}
         </Col>
         <Col className="dragonsSection">
           <h1 className="dragonTitle">My Dragons</h1>
