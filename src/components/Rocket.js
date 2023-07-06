@@ -3,13 +3,13 @@ import '../styles/rocket.css';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Button, Badge } from 'react-bootstrap';
-import { reserveRocket, cancelReservation } from '../redux/rockets/rocketSlices';
+import { reserveRocket, cancelReservation, filterRockets } from '../redux/rockets/rocketSlices';
 
 function Rocket({
   id, name, description, images, reserved,
 }) {
   const dispatch = useDispatch();
-  const CTAButton = reserved ? <Button variant="outline-secondary" onClick={() => dispatch(cancelReservation(id))} className="CTABtn" id={id}>Cancel Reservation</Button> : <Button className="CTABtn" onClick={() => dispatch(reserveRocket(id))} type="button" variant="primary" id={id}>Reserve Rocket</Button>;
+  const CTAButton = reserved ? <Button variant="outline-secondary" onClick={() => { dispatch(cancelReservation(id)); dispatch(filterRockets()); }} className="CTABtn" id={id}>Cancel Reservation</Button> : <Button className="CTABtn" onClick={() => { dispatch(reserveRocket(id)); dispatch(filterRockets()); }} type="button" variant="primary" id={id}>Reserve Rocket</Button>;
   return (
     <div className="rocketCard" id={id}>
       <img src={images[0]} className="cardImage" alt="rocket" />
