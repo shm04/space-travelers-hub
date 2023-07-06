@@ -14,6 +14,7 @@ const Dragons = () => {
     <>
       {dragon.slice(0, 3).map((element) => (
         <div className="dragon-section" key={element.id}>
+          <img src={element.flickr_images} alt="" />
           <div className="dragon-details">
             <h2>{element.name}</h2>
             <p className="dragon-writeup">
