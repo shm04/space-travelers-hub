@@ -9,6 +9,7 @@ export const getMissions = createAsyncThunk('missions/getMission', async () => {
 const initialState = {
   missions: [],
   loading: false,
+  reservedMissions: [],
   status: 'idle',
   error: null,
 };
@@ -28,6 +29,15 @@ const missionSlice = createSlice({
       if (mission) {
         mission.reserved = !mission.reserved;
       }
+    },
+    filterMissions: (state) => {
+      const missions = state.missions.filter((mission) => mission.reserved === true);
+      if (missions) {
+        const newState = { ...state };
+        newState.reservedMissions = missions;
+        return newState;
+      }
+      return state;
     },
   },
   extraReducers: (builder) => {
@@ -57,5 +67,5 @@ const missionSlice = createSlice({
   },
 });
 
-export const { joinMission, leaveMission } = missionSlice.actions;
+export const { joinMission, leaveMission, filterMissions } = missionSlice.actions;
 export default missionSlice.reducer;

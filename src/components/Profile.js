@@ -19,18 +19,26 @@ function Profile() {
     );
   }
 
+  const reservedMissions = useSelector((state) => state.mission.reservedMissions);
+  let missionRender;
+  if (reservedMissions.length === 0) {
+    missionRender = <div>You have not reserved any Mission</div>;
+  } else {
+    missionRender = (
+      <ListGroup>
+        {reservedMissions.map((mission) => (
+          <ListGroup.Item key={mission.id}>{mission.name}</ListGroup.Item>
+        ))}
+      </ListGroup>
+    );
+  }
+
   return (
     <Container style={{ marginTop: '2rem' }}>
       <Row sm={1} md={2} lg={3}>
         <Col className="missionsSection">
           <h1 className="missionTitle">My Missions</h1>
-          <ListGroup>
-            <ListGroup.Item>Cras justo odio</ListGroup.Item>
-            <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-            <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-            <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-            <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-          </ListGroup>
+          {missionRender}
         </Col>
         <Col className="rocketsSection">
           <h1 className="rocketTitle">My Rockets</h1>
