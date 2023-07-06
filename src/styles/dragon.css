@@ -24,14 +24,13 @@
 
 .reserve-btn {
   width: 120px;
-  height: 30px;
+  height: auto;
   border-radius: 5px;
   background-color: #1f6fd7;
   color: white;
   border: none;
   cursor: pointer;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 5px;
 }
 
 .unreserve {
