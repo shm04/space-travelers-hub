@@ -1,37 +1,33 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .dragon-section {
-    display: flex;
-    margin: 20px;
-    align-items: center;
-    gap: 20px;
-
+  display: flex;
+  margin: 20px;
+  align-items: center;
+  gap: 20px;
 }
 
 .dragon-picture {
-    width: 220px;
-    height: 170px;
-    object-fit: cover;
+  width: 220px;
+  height: 170px;
+  object-fit: cover;
 }
 
 .dragon-writeup {
-    padding-top: 20px;
-    padding-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .reserve-btn {
-    width: 120px;
-    height: 30px;
-    border-radius: 5px;
-    background-color: #1f6fd7;
-    color: white;
-    border: none;
-    cursor: pointer;
+  width: 120px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #1f6fd7;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
-
-
-
