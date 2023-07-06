@@ -1,14 +1,17 @@
+/* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const getRockets = createAsyncThunk('rockets/getRockets', async () => {
   const response = await fetch('https://api.spacexdata.com/v4/rockets');
   const data = await response.json();
+
   return data;
 });
 
 const initialState = {
   rockets: [],
   loading: false,
+  reservedRockets: [],
   status: 'idle',
   error: null,
 };
@@ -29,17 +32,24 @@ const rocketSlice = createSlice({
         rocket.reserved = !rocket.reserved;
       }
     },
+    filterRockets: (state) => {
+      const rockets = state.rockets.filter((rocket) => rocket.reserved === true);
+      if (rockets) {
+        const newState = { ...state };
+        newState.reservedRockets = rockets;
+        return newState;
+      }
+      return state;
+    },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getRockets.pending, (state) => ({
-        ...state,
-        loading: true,
-      }))
-      .addCase(getRockets.fulfilled, (state, action) => ({
-        ...state,
-        status: 'Data fetch succeeded',
-        rockets: [
+      .addCase(getRockets.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getRockets.fulfilled, (state, action) => {
+        state.status = 'Data fetch succeeded';
+        state.rockets = [
           ...state.rockets,
           ...action.payload.map((rocket) => ({
             id: rocket.id,
@@ -48,15 +58,16 @@ const rocketSlice = createSlice({
             flickr_images: rocket.flickr_images,
             reserved: false,
           })),
-        ],
-      }))
-      .addCase(getRockets.rejected, (state, action) => ({
-        ...state,
-        status: 'failed',
-        error: action.error.message,
-      }));
+        ];
+        state.loading = false;
+      })
+      .addCase(getRockets.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+        state.loading = false;
+      });
   },
 });
 
-export const { reserveRocket, cancelReservation } = rocketSlice.actions;
+export const { reserveRocket, cancelReservation, filterRockets } = rocketSlice.actions;
 export default rocketSlice.reducer;
