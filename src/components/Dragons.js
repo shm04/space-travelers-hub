@@ -13,7 +13,7 @@ const Dragons = () => {
   const dragon = useSelector((state) => state.dragon.dragons);
   return (
     <>
-      {dragon.slice(0, 3).map((element) => (
+      {dragon.slice(0, 2).map((element) => (
         <div className="dragon-section" key={element.id}>
           <img src={element.flickr_images} alt="dragon" className="dragon-picture" />
           <div className="dragon-details">
