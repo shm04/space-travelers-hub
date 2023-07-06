@@ -5,7 +5,7 @@ import dragonReducer from './dragons/dragonsSlice';
 const store = configureStore({
   reducer: {
     rocket: rocketReducer,
-    dragon: dragonReducer
+    dragon: dragonReducer,
   },
 });
 
