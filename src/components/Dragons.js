@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Badge } from 'react-bootstrap';
-import { fetchDragons, reserveDragon } from '../redux/dragons/dragonsSlice';
+import { fetchDragons, filterDragons, reserveDragon } from '../redux/dragons/dragonsSlice';
 import '../styles/dragon.css';
 
 const Dragons = () => {
@@ -10,7 +10,16 @@ const Dragons = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchDragons());
+
+    const reservedDragons = localStorage.getItem('reservedDragons');
+    if (reservedDragons) {
+      setReserved(JSON.parse(reservedDragons));
+    }
   }, [dispatch]);
+
+  useEffect(() => {
+    localStorage.setItem('reservedDragons', JSON.stringify(reserved));
+  }, [reserved]);
 
   const setReservedValue = (id) => {
     const updatedReserved = [...reserved];
@@ -22,6 +31,7 @@ const Dragons = () => {
     }
     setReserved(updatedReserved);
     dispatch(reserveDragon(id));
+    dispatch(filterDragons());
   };
 
   const dragon = useSelector((state) => state.dragon.dragons);

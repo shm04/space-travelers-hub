@@ -23,6 +23,17 @@ const dragonSlice = createSlice({
         dragon.reserved = !dragon.reserved;
       }
     },
+    filterDragons: (state) => {
+      const dragons = state.dragons.filter(
+        (dragon) => dragon.reserved === true,
+      );
+      if (dragons) {
+        const newState = { ...state };
+        newState.reservedDragons = dragons;
+        return newState;
+      }
+      return state;
+    },
   },
 
   extraReducers: (builder) => {
@@ -56,4 +67,4 @@ const dragonSlice = createSlice({
 
 export default dragonSlice.reducer;
 export { fetchDragons };
-export const { reserveDragon } = dragonSlice.actions;
+export const { reserveDragon, filterDragons } = dragonSlice.actions;
