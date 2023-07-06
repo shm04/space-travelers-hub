@@ -8,7 +8,7 @@ const initialState = {
 };
 
 const fetchDragons = createAsyncThunk('rockets/getRockets', async () => {
-  const response = await fetch('https://api.spacexdata.com/v4/rockets');
+  const response = await fetch('https://api.spacexdata.com/v4/dragons');
   const data = await response.json();
   return data;
 });
