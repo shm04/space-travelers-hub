@@ -25,7 +25,6 @@
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
@@ -131,7 +130,7 @@ To run tests, run the following command:
 - GitHub: [@shm04](https://github.com/shm04)
 - LinkedIn: [Sebastian Hernandez](https://www.linkedin.com/in/sebastian-hernandez-b42052259/)
 
-- 👤 **Author2**
+👤 **Ali Bello**
 
 - GitHub: [@devalibello](https://github.com/devalibello)
 - LinkedIn: [Ali Bello](https://www.linkedin.com/in/ali-bello-imoukhuede/)
@@ -172,13 +171,6 @@ If you like this project give it a star
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 Inspired by [Microverse](https://www.microverse.org/)'s curriculum
-
-
-<!-- FAQ -->
-
-## ❓ FAQ (OPTIONAL) <a name="faq"></a>
-
-- **[No questions have been asked]**. Be the first curious mind
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
