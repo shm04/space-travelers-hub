@@ -1,55 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Badge } from 'react-bootstrap';
-import { fetchDragons, reserveDragon } from '../redux/dragons/dragonsSlice';
-import '../styles/dragon.css';
+import { getDragons } from '../redux/dragons/dragonsSlice';
+import Dragon from './Dragon';
 
-const Dragons = () => {
-  const [reserved, setReserved] = useState([]);
-
+function Dragons() {
+  const dragons = useSelector((state) => state.dragon.dragons);
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(fetchDragons());
+    dispatch(getDragons());
   }, [dispatch]);
 
-  const setReservedValue = (id) => {
-    const updatedReserved = [...reserved];
-    const index = updatedReserved.indexOf(id);
-    if (index !== -1) {
-      updatedReserved.splice(index, 1);
-    } else {
-      updatedReserved.push(id);
-    }
-    setReserved(updatedReserved);
-    dispatch(reserveDragon(id));
-  };
-
-  const dragon = useSelector((state) => state.dragon.dragons);
+  const mappedDragons = dragons.slice(0, 2).map((dragon) => (
+    <Dragon
+      key={dragon.id}
+      id={dragon.id}
+      name={dragon.name}
+      description={dragon.description}
+      images={dragon.flickr_images}
+      reserved={dragon.reserved}
+    />
+  ));
 
   return (
-    <>
-      {dragon.slice(0, 2).map((element) => (
-        <div className="dragon-section" key={element.id}>
-          <img src={element.flickr_images} alt="dragon" className="dragon-picture" />
-          <div className="dragon-details">
-            <h3>{element.name}</h3>
-            <p className="dragon-writeup">
-              {reserved.includes(element.id) && <Badge bg="success">reserved</Badge>}
-              {' '}
-              {element.description}
-            </p>
-            <button
-              type="submit"
-              className={`reserve-btn ${reserved.includes(element.id) ? 'unreserve' : ''}`}
-              onClick={() => setReservedValue(element.id)}
-            >
-              {reserved.includes(element.id) ? 'Cancel Reservation' : 'Reserve Dragon'}
-            </button>
-          </div>
-        </div>
-      ))}
-    </>
+    <section>
+      {mappedDragons}
+    </section>
   );
-};
+}
 
 export default Dragons;
