@@ -1,9 +1,6 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
-  <br/>
 
   <h3><b>Space Travelers Hub</b></h3>
 
@@ -33,17 +30,14 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Space Travelers Hub] <a name="about-project"></a>
+# 📖 Space Travelers Hub <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
 
-**[Space Travelers Hub]** is a SPA web app that works with the real live data from the SpaceX API, built for a company that provides commercial and scientific space travel services. The application will allow users to book rockets and join selected space missions.
+**Space Travelers Hub** is a SPA web app that works with real live data from the SpaceX API, built for a company that provides commercial and scientific space travel services. The application will allow users to book rockets and join selected space missions.
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
-
-> Describe the tech stack and include only the relevant sections that apply to your project.
 
 <details>
   <summary>Client</summary>
@@ -65,8 +59,6 @@
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
-
 - **[Reserve Rockets and Dragon]**
 - **[Join mission]**
 - **[Cancel Reservations]**
@@ -80,30 +72,21 @@
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
-
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
 In order to run this project you need:
 
-
-Example command:
-
-```sh
-  install nodejs
-```
-
+Text Editor 
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-
 ```sh
   cd my-folder
-  git clone https://github.com/danielochuba/space-travelers-hub.githttps://github.com/danielochuba/space-travelers-hub.git
+  git clone https://github.com/danielochuba/space-travelers-hub.git
 ```
 
 ### Install
@@ -115,13 +98,10 @@ Install this project with:
   cd Space-travelers-Hub
   npm install
 ```
---->
 
 ### Usage
 
 To run the project, execute the following command:
-
-
 
 ```sh
   npm start
@@ -140,19 +120,21 @@ To run tests, run the following command:
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
-
 👤 **Daniel Ochuba**
-- GitHub: [@githubhandle](https://github.com/danielochuba)
-- Twitter: [@twitterhandle](https://twitter.com/ochuba_daniel)
-- LinkedIn: [LinkedIn](www.linkedin.com/in/daniel-ochuba-ugochukwu)
+- GitHub: [@danielochuba](https://github.com/danielochuba)
+- Twitter: [@ochuba_daniel](https://twitter.com/ochuba_daniel)
+- LinkedIn: [Daniel Ochuba](www.linkedin.com/in/daniel-ochuba-ugochukwu)
 
 
-👤 **Author2**
+👤 **Sebastian Hernandez**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@shm04](https://github.com/shm04)
+- LinkedIn: [Sebastian Hernandez](https://www.linkedin.com/in/sebastian-hernandez-b42052259/)
+
+- 👤 **Author2**
+
+- GitHub: [@devalibello](https://github.com/devalibello)
+- LinkedIn: [Ali Bello](https://www.linkedin.com/in/ali-bello-imoukhuede/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -160,11 +142,8 @@ To run tests, run the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
-
 - [ ] **[Add more styles to Improve UI]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -182,9 +161,8 @@ Feel free to check the [issues page](https://github.com/danielochuba/space-trave
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
 
-If you like this project...
+If you like this project give it a star
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -193,10 +171,10 @@ If you like this project...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> - Inspired by [Microverse](https://www.microverse.org/)'s curriculum
+Inspired by [Microverse](https://www.microverse.org/)'s curriculum
 
 
-<!-- FAQ (optional) -->
+<!-- FAQ -->
 
 ## ❓ FAQ (OPTIONAL) <a name="faq"></a>
 
