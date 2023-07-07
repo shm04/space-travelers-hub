@@ -170,7 +170,7 @@ If you like this project give it a star
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-Inspired by [Microverse](https://www.microverse.org/)'s curriculum
+Inspired by Microverse's curriculum
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
