@@ -122,7 +122,8 @@ To run tests, run the following command:
 👤 **Daniel Ochuba**
 - GitHub: [@danielochuba](https://github.com/danielochuba)
 - Twitter: [@ochuba_daniel](https://twitter.com/ochuba_daniel)
-- LinkedIn: [Daniel Ochuba](www.linkedin.com/in/daniel-ochuba-ugochukwu)
+- LinkedIn: [Daniel Ochuba](https://wwww.linkedin.com/in/daniel-ochuba-ugochukwu)
+
 
 
 👤 **Sebastian Hernandez**

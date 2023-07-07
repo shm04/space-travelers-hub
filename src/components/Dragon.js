@@ -40,7 +40,7 @@ Dragon.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  images: PropTypes.string.isRequired,
+  images: PropTypes.arrayOf.isRequired,
   reserved: PropTypes.bool.isRequired,
 };
 
