@@ -21,7 +21,7 @@ function Dragon({
   );
 
   return (
-    <div className="dragon-section" id={id}>
+    <div className="dragon-section" id={id} data-testid="dragon-component">
       <img src={images[0]} className="dragon-picture" alt="dragon" />
       <div className="details">
         <h2 className="title">{name}</h2>
