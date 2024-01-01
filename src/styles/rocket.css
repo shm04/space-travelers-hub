@@ -37,3 +37,25 @@
   cursor: pointer;
   padding-top: 2px;
 }
+
+@media screen and (max-width: 600px) {
+  .rocketCard {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 10px;
+  }
+
+  .cardImage {
+    width: 100%;
+    height: auto;
+  }
+
+  .details {
+    width: 100%;
+  }
+
+  .description {
+    width: 100%;
+  }
+  
+}
