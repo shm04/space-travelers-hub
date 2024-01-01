@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+body {
+  background: rgb(171, 185, 185);
+}
+
 .dragon-section {
   display: flex;
   margin: 20px;
